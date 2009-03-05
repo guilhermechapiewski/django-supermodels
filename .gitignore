@@ -5,3 +5,4 @@ tmp
 *.pyc
 *.pyo
 *~
+example/people.db
