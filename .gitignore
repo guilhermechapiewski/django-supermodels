@@ -2,3 +2,6 @@ build
 dist
 src/django_supermodels.egg-info
 tmp
+*.pyc
+*.pyo
+*~

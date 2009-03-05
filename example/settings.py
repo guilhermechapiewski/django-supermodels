@@ -1,4 +1,4 @@
-# Django settings for sandbox project.
+# Django settings for example project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -48,7 +48,7 @@ MEDIA_URL = ''
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '%9xtf)qn0rfb4vjcn)^^6!1&t$sk3k2og-e6sqsu@5g%=z2(^m'
+SECRET_KEY = 'f^2t^xp1@u2rwkvrw!q20@r*d46ua46x129moo(8(p3&92b+ig'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -63,7 +63,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
-ROOT_URLCONF = 'sandbox.urls'
+ROOT_URLCONF = 'example.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
