@@ -13,14 +13,16 @@ Examples:
 Developed by:
 -- Guilherme Chapiewski - http://gc.blog.br
  
-Contributors:
--- Oliver Andrich - http://oliverandrich.net/
+Thanks to these guys for their ideas and contributions:
+-- Luciano Ramalho - http://ramalho.org
+-- Oliver Andrich - http://oliverandrich.net
 """
 
 from django.db.models.base import ModelBase as DjangoModelBase
 from django.db.models import Model as DjangoModel
 from django.db.models import Manager as DjangoManager
 
+# http://docs.python.org/reference/datamodel.html#new-style-special-lookup
 class DynamicFinders(DjangoModelBase):
     def __getattribute__(obj, *args, **kwargs):
         print 'metaclass getattribute invoked'
@@ -30,7 +32,8 @@ class DynamicFinders(DjangoModelBase):
         if method_name_called.startswith('find_by_'):
             print '-- recognized call to find_by_'
             print "-- found it!" if "WILD_find_by" in type(obj).__dict__ else "-- not found"
-            #TODO: return super(DynamicFinders, self).__getattribute__('WILD_find_by', *args, **kwargs)
+            #TODO: this call does not work
+            # return super(DynamicFinders, self).__getattribute__('WILD_find_by', *args, **kwargs)
             
         #TODO: return super(DynamicFinders, self).__getattribute__(obj, *args, **kwargs)
 
@@ -52,7 +55,8 @@ class FindByManager(DjangoManager):
         return super(FindByManager, self).__getattribute__(name)
 
 class Model(DjangoModel):
-    #TODO: __metaclass__ = DynamicFinders 
+    #TODO: the original idea (without the .objects thing)
+    # __metaclass__ = DynamicFinders 
     objects = FindByManager()
         
     class Meta(object):
