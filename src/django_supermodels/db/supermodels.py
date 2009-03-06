@@ -6,9 +6,23 @@ what you can find in Rails.
 
 Examples:
 
->>> Person.objects.find_by_id(1)
->>> Person.objects.find_by_name('Guilherme Chapiewski')
->>> Person.objects.find_by_id_and_name(1, 'Guilherme Chapiewski')
+    >>> Person.objects.all()
+    [Person[name=Guilherme Chapiewski, age=123, birth_date=2009-03-06, country=Brazil], Person[name=Hoover Orsi, age=34, birth_date=2009-03-08, country=Brazil]]
+
+    >>> Person.objects.find_by_name('Guilherme Chapiewski')
+    [Person[name=Guilherme Chapiewski, age=123, birth_date=2009-03-06, country=Brazil]]
+
+    >>> Person.objects.find_by_id(2)
+    [Person[name=Hoover Orsi, age=34, birth_date=2009-03-08, country=Brazil]]
+
+    >>> Person.objects.find_by_name_and_id('Guilherme Chapiewski', 89732)
+    []
+
+    >>> Person.objects.find_by_id_and_name(1, 'Guilherme Chapiewski')
+    [Person[name=Guilherme Chapiewski, age=123, birth_date=2009-03-06, country=Brazil]]
+
+    >>> Person.objects.find_by_nonexistingfield('something')
+    Cannot resolve keyword 'nonexistingfield' into field. Choices are: age, birth_date, country, id, name
 
 Developed by:
 -- Guilherme Chapiewski - http://gc.blog.br

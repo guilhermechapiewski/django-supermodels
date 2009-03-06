@@ -7,5 +7,8 @@ class Person(supermodels.Model):
     birth_date = models.DateField()
     country = models.CharField(max_length=200)
     
-    def __unicode__(self):
-        return self.name
+    def __repr__(self):
+        return 'Person[name=%s, age=%d, birth_date=%s, country=%s]' % (self.name, self.age, self.birth_date, self.country)
+    
+    class Meta(object):
+        verbose_name_plural = 'people'
