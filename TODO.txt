@@ -1,0 +1,7 @@
+TODO list
+=========
+
+- Run the models doctest automatically.
+- Create basic documentation.
+- Test more.
+- Publish on PYPI.
